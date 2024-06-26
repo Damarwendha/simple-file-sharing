@@ -2,3 +2,85 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  h1 {
+    @apply text-3xl font-extrabold lg:text-5xl xl:text-6xl;
+  }
+  h2 {
+    @apply text-3xl font-extrabold lg:text-5xl xl:text-6xl;
+  }
+  p {
+    @apply text-[0.9rem] xl:text-lg;
+  }
+
+  :root {
+    --primary: rgb(19, 108, 250);
+    --primary-20: rgba(19, 108, 250, 0.2);
+    --primary-foreground: rgb(248, 250, 252);
+
+    --secondary: rgb(18 18 18);
+    --secondary-foreground: rgb(29, 78, 216);
+
+    --background: rgb(255, 255, 255);
+    --foreground: rgb(39, 51, 80);
+
+    --card: rgb(255, 255, 255);
+    --card-foreground: rgb(2, 8, 23);
+
+    --muted: rgb(241, 245, 249);
+    --muted-foreground: rgb(72, 80, 92);
+
+    --destructive: rgb(165, 6, 6);
+    --warning: rgb(158, 93, 7);
+    --success: rgb(0, 124, 0);
+    --link: rgb(7, 86, 212);
+
+    --border: rgb(226, 232, 240);
+    --input: rgb(226, 232, 240);
+    --ring: rgb(59, 130, 246);
+  }
+
+  /* Dark Mode */
+  /* .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  } */
+}
+
+@layer components {
+  .hover-circle {
+    @apply box-content p-1 transition-all duration-200 rounded-full cursor-pointer hover:bg-background hover:text-primary hover:transition-all hover:duration-200;
+  }
+}
