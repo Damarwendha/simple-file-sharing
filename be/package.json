@@ -2,12 +2,12 @@
   "name": "simple-shortlink-be",
   "version": "1.0.0",
   "description": "",
-  "main": "./src/server.ts",
+  "main": "./src/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc --build",
-    "start": "node ./build/server.ts",
-    "start:dev": "nodemon ./src/server.ts"
+    "start": "node ./build/index.ts",
+    "start:dev": "nodemon ./src/index.ts"
   },
   "author": "Damar",
   "license": "MIT",
