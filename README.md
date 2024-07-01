@@ -1,2 +1,2 @@
-# simple-file-sharing
-This is a simple fullstack project made with the PEAN Stack, which uses PostgreSQL, Express, Angular, and Node.js.
+## About
+The Simple File Sharing App is designed to provide a seamless, secure, and rewarding file sharing experience for users. By leveraging modern web technologies, the app not only ensures efficient file management but also offers a unique monetization feature, allowing users to earn money each time their files are downloaded.
