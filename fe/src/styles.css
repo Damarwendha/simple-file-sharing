@@ -84,3 +84,6 @@
     @apply box-content p-1 transition-all duration-200 rounded-full cursor-pointer hover:bg-background hover:text-primary hover:transition-all hover:duration-200;
   }
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
