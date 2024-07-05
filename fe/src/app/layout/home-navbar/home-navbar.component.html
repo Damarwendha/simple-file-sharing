@@ -1,1 +1,154 @@
-<p>home-navbar works!</p>
+<header
+  class="fixed flex lg:px-12 px-8 z-[99] py-3 w-[100vw] top-0 h-[64px] bg-white/90 backdrop-blur-md
+{{ isNotOnTop ? 'border-b' : '' }}"
+>
+  <!-- accessibility purpose -->
+  <a
+    class="absolute z-50 p-4 m-4 font-medium text-white bg-blue-600 -translate-y-36 focus:translate-y-0"
+    href="#content"
+    title="Skip to content"
+  >
+    Skip to content
+  </a>
+  <a
+    class="absolute z-50 p-4 m-4 font-medium text-white bg-blue-600 -translate-y-36 focus:translate-y-0"
+    href="#footer"
+    title="Skip to footer"
+  >
+    Skip to footer
+  </a>
+  <!-- accessibility purpose -->
+
+  <nav class="flex items-center w-full sm:mx-12">
+    <div class="flex items-center justify-between w-full my-auto">
+      <div class="flex gap-4 lg:w-40">
+        <a
+          routerLink="{{ ['/'] }}"
+          title="{{ brand.name }}"
+          class="block w-max"
+        >
+          <img
+            ngSrc="{{ brand.logo }}"
+            alt="{{ brand.name }}"
+            width="28"
+            height="28"
+          />
+        </a>
+      </div>
+
+      <!-- Hamburger menu for mobile  -->
+      <button
+        class="flex items-center justify-center cursor-pointer hover-fade lg:hidden"
+        title="Open Sidebar"
+        type="button"
+      >
+        <ng-icon name="radixHamburgerMenu" size="24" />
+      </button>
+      <!-- Hamburger menu for mobile  -->
+
+      <!-- Highlight menu for desktop -->
+      <ul class="justify-center hidden text-gray-700 lg:flex lg:w-80 lg:gap-6">
+        @for (route of routes; track route.label){
+        <li>
+          <a
+            class="flex items-center text-sm font-medium opacity-75 hover:opacity-100"
+            routerLinkActive="opacity-[1]"
+            routerLink="{{ [route.href] }}"
+          >
+            {{ route.label }}
+          </a>
+        </li>
+        }
+      </ul>
+      <!-- Highlight menu for desktop -->
+
+      <!-- Auth menu for desktop -->
+      <div
+        class="hidden p-[0.35rem] border lg:flex lg:w-40 lg:gap-1 rounded-[0.5rem]"
+      >
+        <a
+          routerLink="/signin"
+          class="whitespace-nowrap text-sm py-[0.25rem] px-3 rounded-[0.5rem] z-50 hover:bg-[#1F19E1]/10 font-medium active:opacity-70 transition-all"
+        >
+          Sign in
+        </a>
+        <a
+          routerLink="/signup"
+          class="z-50 py-[0.25rem] px-3 text-sm font-medium text-center text-white transition-all bg-gradient-to-tr from-[#e119e1] to-[#1F19E1]/90 rounded-[0.5rem] whitespace-nowrap hover:opacity-80 active:opacity-70"
+        >
+          Sign up
+        </a>
+      </div>
+      <!-- Auth menu for desktop -->
+    </div>
+  </nav>
+</header>
+
+<!-- <header
+  class="fixed flex lg:px-12 px-8 z-[99] py-3 w-[100vw] top-0 h-[64px] bg-white/80 backdrop-blur-md
+          {{isNotOnTop ? `border-b` : ''}}
+        "
+>
+  <a
+    class="absolute border-[0.75rem] border-blue-600 p-2 bg-white font-semibold -translate-y-20 focus:translate-y-0"
+    href="#footer"
+    title="Skip to footer"
+  >
+    Skip to footer
+  </a>
+  <nav class="flex items-center w-full sm:mx-12">
+    <div class="flex items-center justify-between w-full my-auto">
+      <div class="flex gap-4 lg:w-40">
+        <a [routerLink]="['/']" [title]="brand.name" class="block w-max">
+          <img [ngSrc]="brand.logo" [alt]="brand.name" width="24" height="24" />
+        </a>
+      </div>
+
+       Hamburger menu for mobile 
+      <button
+        class="cursor-pointer mt-[2px] hover-fade lg:hidden"
+        title="Open Sidebar"
+        type="button"
+      >
+        <p>ini harusnya icon Hamburger</p>
+      </button>
+       Hamburger menu for mobile 
+
+      <ul class="justify-center hidden text-gray-700 lg:flex lg:w-80 lg:gap-6">
+        @for (route of routes; track route.label){
+        <li
+          class="{{
+            pathname !== route.href
+              ? 'underline-hover active:opacity-70'
+              : 'border-b-2 border-brand'
+          }}"
+        >
+          <a
+            class="
+                      font-medium flex items-center gap-2 p-2 rounded-md
+                      {{ pathname === route.href ? 'text-brand' : '' }}
+                    "
+            href="{{ route.href }}"
+          >
+            <span>kaka</span>
+          </a>
+        </li>
+        } 
+      </ul>
+
+      Auth for desktop only 
+      <div class="hidden lg:flex lg:w-40 lg:gap-2">
+        <button
+          class="rounded-full flex items-center justify-center gap-2 whitespace-nowrap text-sm px-[1.25rem] text-black py-2 z-50 hover:bg-[#1F19E1]/5 font-medium active:opacity-70 transition-all"
+        >
+          Sign in
+        </button>
+        <button
+          class="rounded-full text-sm whitespace-nowrap px-[1.25rem] text-center text-white py-2 z-50 bg-blue-600 font-medium hover:opacity-80 transition-all active:opacity-70"
+        >
+          Sign up
+        </button>
+      </div>
+    </div>
+  </nav>
+</header> -->

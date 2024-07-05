@@ -5,8 +5,5 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './highest-earnings.component.html',
-  styleUrl: './highest-earnings.component.css'
 })
-export class HighestEarningsComponent {
-
-}
+export class HighestEarningsComponent {}

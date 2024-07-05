@@ -1,1 +1,8 @@
-<p>home-layout works!</p>
+<div class="flex flex-col min-h-screen">
+  <app-home-navbar />
+  <main class="pt-[64px] space-y-12 flex-1">
+    <router-outlet />
+  </main>
+  <app-home-footer />
+</div>
+<app-home-sidebar />
