@@ -11,7 +11,6 @@ Before you start, make sure you have installed:
 1. **Clone this repository:**
 ```bash
    git clone https://github.com/Damarwendha/simple-file-sharing.git
-   cd fe
 ```
 2. **Install Frontend & Backend dependencies:**
 ```bash
