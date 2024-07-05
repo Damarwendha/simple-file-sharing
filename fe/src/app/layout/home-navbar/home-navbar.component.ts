@@ -1,14 +1,9 @@
-import { isPlatformBrowser, NgFor, NgOptimizedImage } from '@angular/common';
-import {
-  Component,
-  HostListener,
-  Inject,
-  OnInit,
-  PLATFORM_ID,
-} from '@angular/core';
+import { NgFor, NgOptimizedImage } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
 import { brand } from '../../../constants/brand';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
+import { ScrollService } from '../../shared/services/scroll.service';
 
 @Component({
   selector: 'app-home-navbar',
@@ -23,7 +18,6 @@ import { MatIconModule } from '@angular/material/icon';
   templateUrl: './home-navbar.component.html',
 })
 export class HomeNavbarComponent implements OnInit {
-  isClient = false;
   isNotOnTop = false;
   brand = brand;
   routes = [
@@ -37,25 +31,11 @@ export class HomeNavbarComponent implements OnInit {
     },
   ] as const;
 
-  constructor(@Inject(PLATFORM_ID) private platformId: any) {}
+  constructor(private scrollService: ScrollService) {}
 
   ngOnInit() {
-    this.isClient = isPlatformBrowser(this.platformId);
-
-    if (this.isClient) this.checkScrollPosition();
-  }
-
-  @HostListener('window:scroll', [])
-  onWindowScroll() {
-    if (this.isClient) this.checkScrollPosition();
-  }
-
-  private checkScrollPosition() {
-    const scrollPosition =
-      window.scrollY ||
-      document.documentElement.scrollTop ||
-      document.body.scrollTop ||
-      0;
-    this.isNotOnTop = scrollPosition > 0;
+    this.scrollService.getScrollPosition().subscribe((position) => {
+      this.isNotOnTop = position > 0;
+    });
   }
 }
