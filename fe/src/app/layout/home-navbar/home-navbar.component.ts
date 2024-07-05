@@ -1,5 +1,11 @@
-import { NgFor, NgOptimizedImage } from '@angular/common';
-import { Component } from '@angular/core';
+import { isPlatformBrowser, NgFor, NgOptimizedImage } from '@angular/common';
+import {
+  Component,
+  HostListener,
+  Inject,
+  OnInit,
+  PLATFORM_ID,
+} from '@angular/core';
 import { brand } from '../../../constants/brand';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
@@ -16,10 +22,10 @@ import { MatIconModule } from '@angular/material/icon';
   ],
   templateUrl: './home-navbar.component.html',
 })
-export class HomeNavbarComponent {
+export class HomeNavbarComponent implements OnInit {
+  isClient = false;
+  isNotOnTop = false;
   brand = brand;
-  isNotOnTop: boolean = true;
-  pathname: string = '/highest-earnings';
   routes = [
     {
       href: '/highest-earnings',
@@ -30,4 +36,26 @@ export class HomeNavbarComponent {
       label: 'Payout Rates',
     },
   ] as const;
+
+  constructor(@Inject(PLATFORM_ID) private platformId: any) {}
+
+  ngOnInit() {
+    this.isClient = isPlatformBrowser(this.platformId);
+
+    if (this.isClient) this.checkScrollPosition();
+  }
+
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    if (this.isClient) this.checkScrollPosition();
+  }
+
+  private checkScrollPosition() {
+    const scrollPosition =
+      window.scrollY ||
+      document.documentElement.scrollTop ||
+      document.body.scrollTop ||
+      0;
+    this.isNotOnTop = scrollPosition > 0;
+  }
 }
