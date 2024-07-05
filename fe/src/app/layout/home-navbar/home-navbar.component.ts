@@ -2,8 +2,7 @@ import { NgFor, NgOptimizedImage } from '@angular/common';
 import { Component } from '@angular/core';
 import { brand } from '../../../constants/brand';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-import { NgIconComponent, provideIcons } from '@ng-icons/core';
-import { radixHamburgerMenu } from '@ng-icons/radix-icons';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-home-navbar',
@@ -13,10 +12,9 @@ import { radixHamburgerMenu } from '@ng-icons/radix-icons';
     RouterLink,
     RouterLinkActive,
     NgFor,
-    NgIconComponent,
+    MatIconModule,
   ],
   templateUrl: './home-navbar.component.html',
-  viewProviders: [provideIcons({ radixHamburgerMenu })],
 })
 export class HomeNavbarComponent {
   brand = brand;

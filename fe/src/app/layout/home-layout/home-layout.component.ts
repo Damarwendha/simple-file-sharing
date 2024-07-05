@@ -17,4 +17,6 @@ import { HomeFooterComponent } from '../home-footer/home-footer.component';
   ],
   templateUrl: './home-layout.component.html',
 })
-export class HomeLayoutComponent {}
+export class HomeLayoutComponent {
+  isNotOnTop = false;
+}

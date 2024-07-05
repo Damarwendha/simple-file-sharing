@@ -42,7 +42,7 @@
         title="Open Sidebar"
         type="button"
       >
-        <ng-icon name="radixHamburgerMenu" size="24" />
+        <mat-icon>menu</mat-icon>
       </button>
       <!-- Hamburger menu for mobile  -->
 
@@ -83,72 +83,3 @@
     </div>
   </nav>
 </header>
-
-<!-- <header
-  class="fixed flex lg:px-12 px-8 z-[99] py-3 w-[100vw] top-0 h-[64px] bg-white/80 backdrop-blur-md
-          {{isNotOnTop ? `border-b` : ''}}
-        "
->
-  <a
-    class="absolute border-[0.75rem] border-blue-600 p-2 bg-white font-semibold -translate-y-20 focus:translate-y-0"
-    href="#footer"
-    title="Skip to footer"
-  >
-    Skip to footer
-  </a>
-  <nav class="flex items-center w-full sm:mx-12">
-    <div class="flex items-center justify-between w-full my-auto">
-      <div class="flex gap-4 lg:w-40">
-        <a [routerLink]="['/']" [title]="brand.name" class="block w-max">
-          <img [ngSrc]="brand.logo" [alt]="brand.name" width="24" height="24" />
-        </a>
-      </div>
-
-       Hamburger menu for mobile 
-      <button
-        class="cursor-pointer mt-[2px] hover-fade lg:hidden"
-        title="Open Sidebar"
-        type="button"
-      >
-        <p>ini harusnya icon Hamburger</p>
-      </button>
-       Hamburger menu for mobile 
-
-      <ul class="justify-center hidden text-gray-700 lg:flex lg:w-80 lg:gap-6">
-        @for (route of routes; track route.label){
-        <li
-          class="{{
-            pathname !== route.href
-              ? 'underline-hover active:opacity-70'
-              : 'border-b-2 border-brand'
-          }}"
-        >
-          <a
-            class="
-                      font-medium flex items-center gap-2 p-2 rounded-md
-                      {{ pathname === route.href ? 'text-brand' : '' }}
-                    "
-            href="{{ route.href }}"
-          >
-            <span>kaka</span>
-          </a>
-        </li>
-        } 
-      </ul>
-
-      Auth for desktop only 
-      <div class="hidden lg:flex lg:w-40 lg:gap-2">
-        <button
-          class="rounded-full flex items-center justify-center gap-2 whitespace-nowrap text-sm px-[1.25rem] text-black py-2 z-50 hover:bg-[#1F19E1]/5 font-medium active:opacity-70 transition-all"
-        >
-          Sign in
-        </button>
-        <button
-          class="rounded-full text-sm whitespace-nowrap px-[1.25rem] text-center text-white py-2 z-50 bg-blue-600 font-medium hover:opacity-80 transition-all active:opacity-70"
-        >
-          Sign up
-        </button>
-      </div>
-    </div>
-  </nav>
-</header> -->
