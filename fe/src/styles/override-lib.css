@@ -19,3 +19,10 @@
   border-radius: 0.75rem;
 }
 /* MAT-MENU */
+
+/* MAT-CARD */
+.override .mat-mdc-card {
+  background-color: var(--background);
+  box-shadow: none;
+}
+/* MAT-CARD */

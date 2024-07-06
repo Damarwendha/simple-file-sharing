@@ -2,9 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  border-color: var(--border);
-}
 html,
 body {
   height: 100%;
@@ -14,6 +11,7 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
   background-color: var(--background);
   color: var(--foreground);
+  overflow-x: hidden;
 }
 
 @layer base {
@@ -25,6 +23,9 @@ body {
   }
   p {
     @apply text-[0.9rem] xl:text-lg;
+  }
+  a {
+    @apply transition-opacity hover:opacity-75;
   }
 
   :root {
@@ -42,7 +43,7 @@ body {
     --card-foreground: rgb(2, 8, 23);
 
     --muted: rgb(241, 245, 249);
-    --muted-foreground: rgb(72, 80, 92);
+    --muted-foreground: rgb(103, 109, 119);
 
     --destructive: rgb(165, 6, 6);
     --warning: rgb(158, 93, 7);

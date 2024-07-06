@@ -36,8 +36,10 @@ export class HomeNavbarComponent implements OnInit {
   constructor(private readonly _scrollService: ScrollService) {}
 
   ngOnInit() {
-    this._scrollService.watchScrollPosition().subscribe((position) => {
-      this.isNotOnTop = position > 0;
+    this._scrollService.watchScrollPosition().subscribe({
+      next: (position) => {
+        this.isNotOnTop = position > 0;
+      },
     });
   }
 }
