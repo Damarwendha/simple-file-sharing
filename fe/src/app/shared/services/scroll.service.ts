@@ -7,14 +7,14 @@ import { map, startWith } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class ScrollService {
-  private isClient: boolean;
+  private _isClient: boolean;
 
-  constructor(@Inject(PLATFORM_ID) private platformId: any) {
-    this.isClient = isPlatformBrowser(this.platformId);
+  constructor(@Inject(PLATFORM_ID) private _platformId: any) {
+    this._isClient = isPlatformBrowser(this._platformId);
   }
 
-  getScrollPosition(): Observable<number> {
-    if (this.isClient) {
+  public watchScrollPosition(): Observable<number> {
+    if (this._isClient) {
       return fromEvent(window, 'scroll').pipe(
         map(() => this.checkScrollPosition()),
         startWith(this.checkScrollPosition())

@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  border-color: var(--border);
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+@layer base {
+  h1 {
+    @apply text-3xl font-extrabold lg:text-5xl xl:text-6xl;
+  }
+  h2 {
+    @apply text-2xl font-bold lg:text-4xl xl:text-5xl;
+  }
+  p {
+    @apply text-[0.9rem] xl:text-lg;
+  }
+
+  :root {
+    --primary: rgb(19, 108, 250);
+    --primary-20: rgba(19, 108, 250, 0.2);
+    --primary-foreground: rgb(248, 250, 252);
+
+    --secondary: rgb(18 18 18);
+    --secondary-foreground: rgb(29, 78, 216);
+
+    --background: rgb(255, 255, 255);
+    --foreground: rgb(39, 51, 80);
+
+    --card: rgb(255, 255, 255);
+    --card-foreground: rgb(2, 8, 23);
+
+    --muted: rgb(241, 245, 249);
+    --muted-foreground: rgb(72, 80, 92);
+
+    --destructive: rgb(165, 6, 6);
+    --warning: rgb(158, 93, 7);
+    --success: rgb(0, 124, 0);
+    --link: rgb(7, 86, 212);
+
+    --border: rgb(226, 232, 240);
+    --input: rgb(226, 232, 240);
+    --ring: rgb(59, 130, 246);
+  }
+}

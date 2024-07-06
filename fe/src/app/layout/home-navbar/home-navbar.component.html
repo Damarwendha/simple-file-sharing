@@ -1,17 +1,17 @@
 <header
-  class="fixed flex lg:px-12 px-8 z-[99] py-3 w-[100vw] top-0 h-[64px] bg-white/90 backdrop-blur-md
+  class="fixed flex lg:px-12 px-4 z-[99] py-3 w-[100vw] top-0 h-[64px] bg-white/90 backdrop-blur-md
 {{ isNotOnTop ? 'border-b' : '' }}"
 >
   <!-- accessibility purpose -->
   <a
-    class="absolute z-50 p-4 m-4 font-medium text-white bg-blue-600 -translate-y-36 focus:translate-y-0"
+    class="absolute z-50 p-4 m-4 font-medium text-white bg-blue-600 -translate-y-36 focus:translate-y-4"
     href="#content"
     title="Skip to content"
   >
     Skip to content
   </a>
   <a
-    class="absolute z-50 p-4 m-4 font-medium text-white bg-blue-600 -translate-y-36 focus:translate-y-0"
+    class="absolute z-50 p-4 m-4 font-medium text-white bg-blue-600 -translate-y-36 focus:translate-y-4"
     href="#footer"
     title="Skip to footer"
   >
@@ -22,9 +22,36 @@
   <nav class="flex items-center w-full sm:mx-12">
     <div class="flex items-center justify-between w-full my-auto">
       <div class="flex gap-4 lg:w-40">
+        <!-- Hamburger menu for mobile  -->
+        <button
+          class="flex items-center justify-center cursor-pointer opacity-60 hover-fade lg:hidden"
+          title="Open Menu"
+          aria-label="Open Menu"
+          type="button"
+          [matMenuTriggerFor]="menu"
+        >
+          <mat-icon>menu</mat-icon>
+        </button>
+        <!-- Hamburger menu for mobile  -->
+
+        <mat-menu #menu="matMenu">
+          <ng-template matMenuContent>
+            @for (route of routes; track route.label){
+            <a
+              routerLink="{{ [route.href] }}"
+              class="opacity-75"
+              routerLinkActive="opacity-[1]"
+              mat-menu-item
+              >{{ route.label }}</a
+            >
+            }
+          </ng-template>
+        </mat-menu>
+
         <a
           routerLink="{{ ['/'] }}"
           title="{{ brand.name }}"
+          type="submit"
           class="block w-max"
         >
           <img
@@ -35,16 +62,6 @@
           />
         </a>
       </div>
-
-      <!-- Hamburger menu for mobile  -->
-      <button
-        class="flex items-center justify-center cursor-pointer hover-fade lg:hidden"
-        title="Open Sidebar"
-        type="button"
-      >
-        <mat-icon>menu</mat-icon>
-      </button>
-      <!-- Hamburger menu for mobile  -->
 
       <!-- Highlight menu for desktop -->
       <ul class="justify-center hidden text-gray-700 lg:flex lg:w-80 lg:gap-6">
@@ -63,9 +80,7 @@
       <!-- Highlight menu for desktop -->
 
       <!-- Auth menu for desktop -->
-      <div
-        class="hidden p-[0.35rem] border lg:flex lg:w-40 lg:gap-1 rounded-[0.5rem]"
-      >
+      <div class="p-[0.35rem] border lg:flex lg:w-40 lg:gap-1 rounded-[0.5rem]">
         <a
           routerLink="/signin"
           class="whitespace-nowrap text-sm py-[0.25rem] px-3 rounded-[0.5rem] z-50 hover:bg-[#1F19E1]/10 font-medium active:opacity-70 transition-all"

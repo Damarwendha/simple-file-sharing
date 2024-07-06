@@ -4,6 +4,7 @@ import { brand } from '../../../constants/brand';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { ScrollService } from '../../shared/services/scroll.service';
+import { MatMenuModule } from '@angular/material/menu';
 
 @Component({
   selector: 'app-home-navbar',
@@ -14,13 +15,14 @@ import { ScrollService } from '../../shared/services/scroll.service';
     RouterLinkActive,
     NgFor,
     MatIconModule,
+    MatMenuModule,
   ],
   templateUrl: './home-navbar.component.html',
 })
 export class HomeNavbarComponent implements OnInit {
-  isNotOnTop = false;
-  brand = brand;
-  routes = [
+  public isNotOnTop = false;
+  public readonly brand = brand;
+  public readonly routes = [
     {
       href: '/highest-earnings',
       label: 'Best Members',
@@ -31,10 +33,10 @@ export class HomeNavbarComponent implements OnInit {
     },
   ] as const;
 
-  constructor(private scrollService: ScrollService) {}
+  constructor(private readonly _scrollService: ScrollService) {}
 
   ngOnInit() {
-    this.scrollService.getScrollPosition().subscribe((position) => {
+    this._scrollService.watchScrollPosition().subscribe((position) => {
       this.isNotOnTop = position > 0;
     });
   }
