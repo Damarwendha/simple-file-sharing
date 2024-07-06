@@ -1,9 +1,9 @@
 import { NgFor, NgOptimizedImage } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { brand } from '../../../constants/brand';
+import { brand } from '../../../../../constants/brand';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
-import { ScrollService } from '../../shared/services/scroll.service';
+import { ScrollService } from '../../../../shared/services/scroll.service';
 import { MatMenuModule } from '@angular/material/menu';
 
 @Component({
