@@ -1,8 +1,8 @@
-import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { brand } from '../../../../constants/brand';
 import { MatCardModule } from '@angular/material/card';
-import { isPlatformBrowser, NgOptimizedImage } from '@angular/common';
+import { NgOptimizedImage } from '@angular/common';
 import { PlatformService } from '../../../shared/services/platform.service';
 import { MatButtonModule } from '@angular/material/button';
 

@@ -26,3 +26,15 @@
   box-shadow: none;
 }
 /* MAT-CARD */
+
+/* MAT-INPUT */
+.override .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+  background-color: var(--muted);
+}
+/* MAT-INPUT */
+
+/* MAT-ERROR */
+.override .mat-mdc-form-field-error {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}

@@ -5,7 +5,7 @@ import { MatButtonModule } from '@angular/material/button';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [AvatarComponent, MatButtonModule],
+  imports: [AvatarComponent],
   templateUrl: './home.component.html',
 })
 export class HomeComponent {}

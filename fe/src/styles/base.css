@@ -42,7 +42,7 @@ body {
     --card: rgb(255, 255, 255);
     --card-foreground: rgb(2, 8, 23);
 
-    --muted: rgb(241, 245, 249);
+    --muted: rgb(238, 238, 238);
     --muted-foreground: rgb(103, 109, 119);
 
     --destructive: rgb(165, 6, 6);

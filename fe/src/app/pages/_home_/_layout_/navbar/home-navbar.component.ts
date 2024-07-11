@@ -1,10 +1,11 @@
 import { NgFor, NgOptimizedImage } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { brand } from '../../../../../constants/brand';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { ScrollService } from '../../../../shared/services/scroll.service';
 import { MatMenuModule } from '@angular/material/menu';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-home-navbar',
@@ -19,7 +20,7 @@ import { MatMenuModule } from '@angular/material/menu';
   ],
   templateUrl: './home-navbar.component.html',
 })
-export class HomeNavbarComponent implements OnInit {
+export class HomeNavbarComponent implements OnInit, OnDestroy {
   public isNotOnTop = false;
   public readonly brand = brand;
   public readonly routes = [
@@ -33,13 +34,19 @@ export class HomeNavbarComponent implements OnInit {
     },
   ] as const;
 
+  private _scrollSub!: Subscription;
+
   constructor(private readonly _scrollService: ScrollService) {}
 
   ngOnInit() {
-    this._scrollService.watchScrollPosition().subscribe({
+    this._scrollSub = this._scrollService.watchScrollPosition().subscribe({
       next: (position) => {
         this.isNotOnTop = position > 0;
       },
     });
+  }
+
+  ngOnDestroy() {
+    this._scrollSub?.unsubscribe();
   }
 }
