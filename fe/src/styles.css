@@ -1,12 +1,4 @@
 /* You can add global styles to this file, and also import other style files */
-@import url("./styles/base.css");
-@import url("./styles/override-lib.css");
-
-.hover-fade {
-  opacity: 1;
-  transition: opacity 0.2s;
-}
-
-.hover-fade:hover {
-  opacity: 0.6;
-}
+@import url("./app/core/styles/base.css");
+@import url("./app/core/styles/classes.css");
+@import url("./app/core/styles/override-lib.css");
