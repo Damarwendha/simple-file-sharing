@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { RouterLink, RouterOutlet } from '@angular/router';
@@ -18,6 +18,7 @@ import { MemberNavbarComponent } from './navbar/member-navbar.component';
     MemberNavbarComponent,
   ],
   templateUrl: './member-layout.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MemberLayoutComponent {
   public readonly brand = brand;

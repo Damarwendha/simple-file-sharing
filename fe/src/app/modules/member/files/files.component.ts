@@ -1,12 +1,10 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'app-files',
   standalone: true,
   imports: [],
   templateUrl: './files.component.html',
-  styleUrl: './files.component.css'
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class FilesComponent {
-
-}
+export class FilesComponent {}

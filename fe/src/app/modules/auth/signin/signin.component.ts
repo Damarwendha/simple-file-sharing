@@ -1,5 +1,10 @@
 import { NgFor, NgIf } from '@angular/common';
-import { Component, OnInit, signal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  OnInit,
+  signal,
+} from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -26,6 +31,7 @@ import { MatInputModule } from '@angular/material/input';
     MatIconModule,
   ],
   templateUrl: './signin.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SigninComponent implements OnInit {
   public isSubmiting = false;

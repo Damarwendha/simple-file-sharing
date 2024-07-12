@@ -1,12 +1,12 @@
 import { NgOptimizedImage } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-avatar',
   standalone: true,
   imports: [NgOptimizedImage],
   templateUrl: './avatar.component.html',
-  styleUrl: './avatar.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AvatarComponent {
   @Input() src: string = '/images/blank.png';

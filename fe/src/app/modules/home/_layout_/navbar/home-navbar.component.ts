@@ -1,5 +1,11 @@
 import { NgFor, NgOptimizedImage } from '@angular/common';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  OnDestroy,
+  OnInit,
+  signal,
+} from '@angular/core';
 import { brand } from '../../../../core/constants/brand';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
@@ -19,9 +25,10 @@ import { Subscription } from 'rxjs';
     MatMenuModule,
   ],
   templateUrl: './home-navbar.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomeNavbarComponent implements OnInit, OnDestroy {
-  public isNotOnTop = false;
+  public isNotOnTop = signal(false);
   public readonly brand = brand;
   public readonly routes = [
     {
@@ -41,7 +48,8 @@ export class HomeNavbarComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this._scrollSub = this._scrollService.watchScrollPosition().subscribe({
       next: (position) => {
-        this.isNotOnTop = position > 0;
+        console.log({ position });
+        this.isNotOnTop.set(position > 0);
       },
     });
   }
