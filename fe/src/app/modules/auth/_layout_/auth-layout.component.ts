@@ -29,6 +29,6 @@ export class AuthLayoutComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.authType = this._route.url.split('/')[1];
+    this.authType = this._route.url.split('/').pop() || '';
   }
 }

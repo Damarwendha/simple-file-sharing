@@ -44,7 +44,7 @@
           }}
         </span>
         <a
-          [routerLink]="authType === 'signin' ? '/signup' : '/signin'"
+          [routerLink]="authType === 'signin' ? '/auth/signup' : '/auth/signin'"
           class="underline text-link"
           (click)="authType = authType === 'signin' ? 'signup' : 'signin'"
           >{{ authType === "signin" ? "Sign up" : "Sign in" }}
