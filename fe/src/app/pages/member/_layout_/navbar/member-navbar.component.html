@@ -1,0 +1,66 @@
+<nav class="flex items-center w-full px-6 py-3 border-b">
+  <div class="flex items-center justify-between w-full my-auto">
+    <div class="flex gap-4 lg:w-40">
+      <a
+        routerLink="{{ ['/'] }}"
+        title="{{ brand.name }}"
+        type="submit"
+        class="block w-max"
+      >
+        <img
+          ngSrc="{{ brand.logo }}"
+          alt="{{ brand.name }}"
+          width="28"
+          height="28"
+        />
+      </a>
+    </div>
+
+    <div class="flex gap-6">
+      <!-- Either gonna be a Modal or Link -->
+      <button mat-stroked-button>
+        <mat-icon>upload</mat-icon>
+        Upload
+      </button>
+
+      <button
+        class="flex items-center justify-center cursor-pointer hover-fade"
+        title="Open Profile Menu"
+        aria-label="Open Profile Menu"
+        type="button"
+        [matMenuTriggerFor]="menu"
+      >
+        <app-avatar
+          alt=""
+          src="https://lh3.googleusercontent.com/a/AEdFTp49lTLPMl2z4MGitgrA4KvVSUz8TjiocNiS4AQ-tg=s96-c"
+        />
+      </button>
+
+      <mat-menu #menu="matMenu">
+        <ng-template matMenuContent>
+          <a
+            routerLink="profile"
+            class="opacity-75"
+            routerLinkActive="opacity-[1]"
+            mat-menu-item
+            ><mat-icon>person</mat-icon> Profile</a
+          >
+          <a
+            routerLink="change-password"
+            class="opacity-75"
+            routerLinkActive="opacity-[1]"
+            mat-menu-item
+            ><mat-icon>lock</mat-icon> Change Password</a
+          >
+          <a
+            routerLink="settings"
+            class="opacity-75"
+            routerLinkActive="opacity-[1]"
+            mat-menu-item
+            ><mat-icon>settings</mat-icon>Settings</a
+          >
+        </ng-template>
+      </mat-menu>
+    </div>
+  </div>
+</nav>

@@ -3,9 +3,10 @@
 @import url("./styles/override-lib.css");
 
 .hover-fade {
+  opacity: 1;
   transition: opacity 0.2s;
 }
 
 .hover-fade:hover {
-  opacity: 1;
+  opacity: 0.6;
 }

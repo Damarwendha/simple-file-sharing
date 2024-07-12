@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
-import { brand } from '../../../../constants/brand';
+import { brand } from '../../../core/constants/brand';
 import { MatCardModule } from '@angular/material/card';
 import { NgOptimizedImage } from '@angular/common';
 import { PlatformService } from '../../../shared/services/platform.service';

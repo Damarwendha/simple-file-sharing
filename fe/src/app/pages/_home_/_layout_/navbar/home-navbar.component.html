@@ -24,7 +24,7 @@
       <div class="flex gap-4 lg:w-40">
         <!-- Hamburger menu for mobile  -->
         <button
-          class="flex items-center justify-center cursor-pointer opacity-60 hover-fade lg:hidden"
+          class="flex items-center justify-center cursor-pointer opacity-60 hover:opacity-100 lg:hidden"
           title="Open Menu"
           aria-label="Open Menu"
           type="button"
@@ -32,7 +32,6 @@
         >
           <mat-icon>menu</mat-icon>
         </button>
-        <!-- Hamburger menu for mobile  -->
 
         <mat-menu #menu="matMenu">
           <ng-template matMenuContent>
@@ -47,6 +46,7 @@
             }
           </ng-template>
         </mat-menu>
+        <!-- Hamburger menu for mobile  -->
 
         <a
           routerLink="{{ ['/'] }}"
@@ -81,13 +81,13 @@
 
       <div class="p-[0.35rem] border lg:flex lg:w-40 lg:gap-1 rounded-[0.5rem]">
         <a
-          routerLink="/signin"
+          routerLink="/auth/signin"
           class="whitespace-nowrap text-sm py-[0.25rem] px-3 rounded-[0.5rem] z-50 hover:bg-[#1F19E1]/10 font-medium active:opacity-70 transition-all"
         >
           Sign in
         </a>
         <a
-          routerLink="/signup"
+          routerLink="/auth/signup"
           class="z-50 py-[0.25rem] px-3 text-sm font-medium text-center text-white transition-all bg-gradient-to-tr from-[#e119e1] to-[#1F19E1]/90 rounded-[0.5rem] whitespace-nowrap hover:opacity-80 active:opacity-70"
         >
           Sign up

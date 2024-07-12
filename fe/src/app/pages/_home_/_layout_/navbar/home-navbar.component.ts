@@ -1,6 +1,6 @@
 import { NgFor, NgOptimizedImage } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { brand } from '../../../../../constants/brand';
+import { brand } from '../../../../core/constants/brand';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { ScrollService } from '../../../../shared/services/scroll.service';
