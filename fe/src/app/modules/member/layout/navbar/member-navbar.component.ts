@@ -4,7 +4,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { brand } from '../../../../core/constants/brand';
-import { AvatarComponent } from '../../../../shared/components/avatar/avatar.component';
+import { AvatarComponent } from '../../../../shared/components';
 import { MatButtonModule } from '@angular/material/button';
 
 @Component({

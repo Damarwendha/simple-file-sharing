@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { AvatarComponent } from '../../shared/components/avatar/avatar.component';
+import { AvatarComponent } from '../../../../shared/components/avatar.component';
 
 @Component({
   selector: 'app-home',

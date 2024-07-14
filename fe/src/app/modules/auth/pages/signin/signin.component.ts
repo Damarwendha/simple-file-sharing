@@ -1,4 +1,4 @@
-import { NgFor, NgIf } from '@angular/common';
+import { NgIf } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -12,10 +12,11 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { MatButtonModule } from '@angular/material/button';
+import { MatIconButton } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { SubmitButtonComponent } from '../../components';
 
 @Component({
   selector: 'app-signin',
@@ -23,12 +24,12 @@ import { MatInputModule } from '@angular/material/input';
   imports: [
     ReactiveFormsModule,
     FormsModule,
-    MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
+    MatIconButton,
     NgIf,
-    NgFor,
     MatIconModule,
+    SubmitButtonComponent,
   ],
   templateUrl: './signin.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -37,18 +38,7 @@ export class SigninComponent implements OnInit {
   public isSubmiting = false;
   public isSubmitClicked = false;
   public signInForm!: FormGroup;
-  public readonly isShowPw = signal(false);
-
-  /**
-   * Pastikan fields & validators terdefinisi sama dengan yang ada di @_createSignInForm
-   */
-  public readonly validations = {
-    email: [
-      { validator: 'required', msg: 'This field is required' },
-      { validator: 'email', msg: 'Invalid email' },
-    ],
-    password: [{ validator: 'required', msg: 'This field is required' }],
-  };
+  public sigIsShowPw = signal(false);
 
   constructor(private readonly _formBuilder: FormBuilder) {}
 
@@ -68,7 +58,7 @@ export class SigninComponent implements OnInit {
   }
 
   public onTogglePw() {
-    this.isShowPw.update((v) => !v);
+    this.sigIsShowPw.update((v) => !v);
   }
 
   public onSubmit() {

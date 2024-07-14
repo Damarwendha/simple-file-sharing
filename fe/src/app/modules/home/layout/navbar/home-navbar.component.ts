@@ -9,7 +9,7 @@ import {
 import { brand } from '../../../../core/constants/brand';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
-import { ScrollService } from '../../../../shared/services/scroll.service';
+import { ScrollService } from '../../../../shared/services';
 import { MatMenuModule } from '@angular/material/menu';
 import { Subscription } from 'rxjs';
 
@@ -48,7 +48,6 @@ export class HomeNavbarComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this._scrollSub = this._scrollService.watchScrollPosition().subscribe({
       next: (position) => {
-        console.log({ position });
         this.isNotOnTop.set(position > 0);
       },
     });

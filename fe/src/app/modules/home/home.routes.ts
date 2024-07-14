@@ -4,26 +4,26 @@ export const homeRoutes: Routes = [
   {
     path: '',
     loadComponent: () =>
-      import('./_layout_/home-layout.component').then(
+      import('./layout/home-layout.component').then(
         (m) => m.HomeLayoutComponent
       ),
     children: [
       {
         path: '',
         loadComponent: () =>
-          import('./home.component').then((m) => m.HomeComponent),
+          import('./pages/index/home.component').then((m) => m.HomeComponent),
       },
       {
         path: 'highest-earnings',
         loadComponent: () =>
-          import('./highest-earnings/highest-earnings.component').then(
+          import('./pages/highest-earnings/highest-earnings.component').then(
             (m) => m.HighestEarningsComponent
           ),
       },
       {
         path: 'payout-rates',
         loadComponent: () =>
-          import('./payout-rates/payout-rates.component').then(
+          import('./pages/payout-rates/payout-rates.component').then(
             (m) => m.PayoutRatesComponent
           ),
       },
