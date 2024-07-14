@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: var(--background);
+  color: var(--foreground);
+  overflow-x: hidden;
+}
+
+@layer base {
+  p {
+    @apply text-[0.9rem] xl:text-lg;
+  }
+  a {
+    @apply transition-opacity hover:opacity-75;
+  }
+
+  :root {
+    --primary: rgb(19, 108, 250);
+    --primary-20: rgba(19, 108, 250, 0.2);
+    --primary-foreground: rgb(248, 250, 252);
+
+    --secondary: rgb(18 18 18);
+    --secondary-foreground: rgb(29, 78, 216);
+
+    --background: rgb(255, 255, 255);
+    --foreground: rgb(39, 51, 80);
+
+    --card: rgb(255, 255, 255);
+    --card-foreground: rgb(2, 8, 23);
+
+    --muted: rgb(238, 238, 238);
+    --muted-foreground: rgb(103, 109, 119);
+
+    --destructive: rgb(165, 6, 6);
+    --warning: rgb(158, 93, 7);
+    --success: rgb(0, 124, 0);
+    --link: rgb(7, 86, 212);
+
+    --border: rgb(226, 232, 240);
+    --input: rgb(226, 232, 240);
+    --ring: rgb(59, 130, 246);
+  }
+}

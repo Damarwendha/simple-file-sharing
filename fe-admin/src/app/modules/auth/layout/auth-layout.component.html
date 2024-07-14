@@ -1,1 +1,62 @@
-<p>auth-layout works!</p>
+<main
+  class="flex flex-col items-center justify-center w-screen h-screen sm:bg-primary"
+>
+  <mat-card class="sm:w-[450px] sm:!border-border w-full sm:!border">
+    <mat-card-header class="flex flex-col items-center gap-6">
+      <a [routerLink]="['/']">
+        <img
+          alt="{{ brand.name }}"
+          ngSrc="{{ brand.logo }}"
+          width="36"
+          height="36"
+        />
+      </a>
+      <p class="text-sm text-center text-muted-foreground">
+        {{
+          authType === "signin"
+            ? "Welcome back! Sign in to your account"
+            : "Let's get started! Create your account"
+        }}
+      </p>
+    </mat-card-header>
+    <mat-card-content>
+      <router-outlet />
+    </mat-card-content>
+    <mat-card-footer class="p-4 pt-0">
+      <div class="flex items-center justify-center py-6">
+        <div class="shrink-0 bg-border h-[1px] flex-1"></div>
+        <div class="px-2 text-xs text-muted-foreground">Or continue with</div>
+        <div class="shrink-0 bg-border h-[1px] flex-1"></div>
+      </div>
+
+      <div class="flex items-center justify-center">
+        <button aria-label="Sign in with Google" mat-mini-fab extended>
+          <img ngSrc="/images/google.svg" width="24" height="24" alt="" />
+        </button>
+      </div>
+
+      <div class="flex items-center justify-center gap-1 pt-6 text-sm">
+        <span class="text-muted-foreground">
+          {{
+            authType === "signin"
+              ? "Don't have an account?"
+              : "Already have an account?"
+          }}
+        </span>
+        <a
+          [routerLink]="authType === 'signin' ? '/auth/signup' : '/auth/signin'"
+          class="underline text-link"
+          (click)="authType = authType === 'signin' ? 'signup' : 'signin'"
+          >{{ authType === "signin" ? "Sign up" : "Sign in" }}
+        </a>
+      </div>
+    </mat-card-footer>
+  </mat-card>
+
+  <div class="my-8 text-xs text-center text-muted-foreground sm:text-white">
+    © {{ year }} {{ brand.name }}. All rights reserved.
+  </div>
+</main>
+<!-- <footer class="text-center text-gray-800">
+  © {{ year }} {{ brand.name }}. All rights reserved.
+</footer> -->

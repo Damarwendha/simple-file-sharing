@@ -1,0 +1,40 @@
+/* MAT-MENU */
+.override .cdk-overlay-transparent-backdrop.cdk-overlay-backdrop-showing {
+  background-color: rgb(0 0 0 / 0.1);
+  opacity: 1;
+}
+
+.override .mat-mdc-menu-panel {
+  border-radius: 0.75rem;
+  background-color: rgb(255 255 255);
+  border-width: 2px;
+  box-shadow: none;
+}
+
+.override .mat-mdc-menu-content {
+  padding: 0.75rem;
+}
+
+.override .mat-mdc-menu-item {
+  border-radius: 0.75rem;
+}
+/* MAT-MENU */
+
+/* MAT-CARD */
+.override .mat-mdc-card {
+  background-color: var(--background);
+  box-shadow: none;
+}
+/* MAT-CARD */
+
+/* MAT-INPUT */
+.override .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+  background-color: var(--muted);
+}
+/* MAT-INPUT */
+
+/* MAT-ERROR */
+.override .mat-mdc-form-field-error {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
