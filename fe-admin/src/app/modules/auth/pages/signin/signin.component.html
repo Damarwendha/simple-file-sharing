@@ -1,1 +1,69 @@
-<p>signin works!</p>
+<form
+  [formGroup]="signInForm"
+  class="px-4 mt-4 space-y-4"
+  (ngSubmit)="onSubmit()"
+>
+  <div>
+    <mat-form-field class="!w-full" subscriptSizing="dynamic">
+      <mat-label>Enter your email</mat-label>
+      <input
+        matInput
+        placeholder="yourname@example.com"
+        formControlName="email"
+      />
+    </mat-form-field>
+    <ng-container
+      *ngIf="
+        controls['email'].invalid &&
+        (controls['email'].touched ||
+          controls['email'].dirty ||
+          isSubmitClicked)
+      "
+    >
+      <mat-error *ngIf="controls['email'].errors?.['required']">
+        This field is required</mat-error
+      >
+      <mat-error *ngIf="controls['email'].errors?.['email']">
+        Invalid email</mat-error
+      >
+    </ng-container>
+  </div>
+
+  <div>
+    <mat-form-field class="!w-full" subscriptSizing="dynamic">
+      <mat-label>Enter your password</mat-label>
+      <input
+        matInput
+        formControlName="password"
+        [type]="sigIsShowPw() ? 'text' : 'password'"
+      />
+      <button
+        mat-icon-button
+        matSuffix
+        (click)="onTogglePw()"
+        class="mr-2"
+        type="button"
+        [attr.aria-label]="sigIsShowPw() ? 'Hide password' : 'Show password'"
+        [attr.aria-pressed]="sigIsShowPw()"
+      >
+        <mat-icon>{{
+          sigIsShowPw() ? "visibility_off" : "visibility"
+        }}</mat-icon>
+      </button>
+    </mat-form-field>
+    <ng-container
+      *ngIf="
+        controls['password'].invalid &&
+        (controls['password'].touched ||
+          controls['password'].dirty ||
+          isSubmitClicked)
+      "
+    >
+      <mat-error *ngIf="controls['password'].errors?.['required']">
+        This field is required</mat-error
+      >
+    </ng-container>
+  </div>
+
+  <app-submit-btn label="Sign in" />
+</form>
